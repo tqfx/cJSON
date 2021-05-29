@@ -1,10 +1,13 @@
 
-cmake_minimum_required (VERSION 3.0)
+cmake_minimum_required (VERSION 3.10)
 
 project (CJSON)
 
-include (cmake-flags.cmake)
+include (../cmake/cmake-flags.cmake)
 
-aux_source_directory(. SRC_CJSON)
+aux_source_directory(. SOURCE_CJSON)
 
-add_library(cjson STATIC ${SRC_CJSON})
+add_library(cjson STATIC ${SOURCE_CJSON})
+
+target_include_directories(cjson INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+
